@@ -1,0 +1,13 @@
+---条件查询，分页查询，排序，嵌套文档，注意：嵌套文档查询时，必须要带上引号。
+
+db.oozie_exec_record.find(
+{projectId : '61306d20fc64ea4905e178ba',
+type:'PROD',
+businessMode:'NORMAL',
+'auditingInfo.createTime':'2022',
+auditingInfo:{createTime:'2022',modifyTime:'2022'}
+},
+{_id:1,executeTime:2,'auditingInfo.createTime':3}
+)
+.sort({executeTime:-1,'auditingInfo.createTime':-1})
+.limit(6).skip(0*6);
